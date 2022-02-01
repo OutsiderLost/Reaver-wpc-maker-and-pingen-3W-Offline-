@@ -27,4 +27,5 @@ unzip 3W_wps-pin_offline.zip # && rm 3W_wps-pin_offline.zip && chmod +x *.sh
 
 (run)
 ./wpc-maker.sh
+---------------------------------------------------
 
