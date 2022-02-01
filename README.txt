@@ -18,7 +18,7 @@ Multiple MACs can be developed one after the other.
 ---------------------------------------------------
 Install:
 
-https://github.com/OutsiderLost/Reaver-wpc-maker-pingen.git
+git clone https://github.com/OutsiderLost/Reaver-wpc-maker-pingen.git
 
 cd Reaver-wpc-maker-pingen
 
