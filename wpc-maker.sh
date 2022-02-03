@@ -48,32 +48,32 @@ bash working/sedcommand-01.sh < result/MAC-PIN-alg.txt | sed -e '/^[0-9]\{8\}/!d
 echo "MAC numbers after writting --- Vendor main 4 ---"
 # (main 4)
 # MAC numbers after writting --- Vendor main 4 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-4_01.txt > working/AfterWrite-4_01.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-4_01.txt >> working/AfterWrite-4_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-4_01.txt > working/AfterWrite-4_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-4_01.txt >> working/AfterWrite-4_01.txt
 echo "MAC numbers after writting --- General main 4 ---"
 # MAC numbers after writting --- General main 4 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-4_02.txt >> working/AfterWrite-4_01.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-4_02.txt >> working/AfterWrite-4_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-4_02.txt >> working/AfterWrite-4_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-4_02.txt >> working/AfterWrite-4_01.txt
 
 echo "MAC numbers after writting --- Vendor main 3 ---"
 # (main 3)	
 # MAC numbers after writting --- Vendor main 3 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-3_01.txt > working/AfterWrite-3_01.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-3_01.txt >> working/AfterWrite-3_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-3_01.txt > working/AfterWrite-3_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-3_01.txt >> working/AfterWrite-3_01.txt
 echo "MAC numbers after writting --- General main 3 ---"
 # MAC numbers after writting --- General main 3 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-3_02.txt >> working/AfterWrite-3_01.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-3_02.txt >> working/AfterWrite-3_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-3_02.txt >> working/AfterWrite-3_01.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-3_02.txt >> working/AfterWrite-3_01.txt
 
 # (main PIN 8)
 echo "MAC numbers after writting --- Vendor main PIN 8 ---"
 # MAC numbers after writting --- Vendor main PIN 8 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-PIN_01.txt > result/AfterWrite-PIN.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-PIN_01.txt >> result/AfterWrite-PIN.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-PIN_01.txt > result/AfterWrite-PIN.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-PIN_01.txt >> result/AfterWrite-PIN.txt
 echo "MAC numbers after writting --- General main PIN 8 ---"
 # MAC numbers after writting --- General main PIN 8 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/main-PIN_02.txt >> result/AfterWrite-PIN.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/main-PIN_02.txt >> result/AfterWrite-PIN.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/main-PIN_02.txt >> result/AfterWrite-PIN.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/main-PIN_02.txt >> result/AfterWrite-PIN.txt
 
 echo "(hashcat outfiles) ---"
 # (hashcat outfiles)
@@ -84,12 +84,12 @@ hashcat -a 3 ?d?d?d --stdout > working/3hc-mask.txt
 
 echo "MAC numbers after writting --- hc mask 4 ---"
 # MAC numbers after writting --- hc mask 4 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/4hc-mask.txt > working/AfterWrite-4_02.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/4hc-mask.txt >> working/AfterWrite-4_02.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/4hc-mask.txt > working/AfterWrite-4_02.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/4hc-mask.txt >> working/AfterWrite-4_02.txt
 echo "MAC numbers after writting --- hc mask 3 ---"
 # MAC numbers after writting --- hc mask 3 ---
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/!d" working/3hc-mask.txt > working/AfterWrite-3_02.txt
-sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g')]/d" working/3hc-mask.txt >> working/AfterWrite-3_02.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/3hc-mask.txt > working/AfterWrite-3_02.txt
+sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/d" working/3hc-mask.txt >> working/AfterWrite-3_02.txt
 
 
 echo "(sedcommand files) ---"
