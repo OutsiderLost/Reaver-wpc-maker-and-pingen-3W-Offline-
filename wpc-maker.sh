@@ -82,6 +82,21 @@ hashcat -a 3 ?d?d?d?d --stdout > working/4hc-mask.txt
 # 3 mask ---
 hashcat -a 3 ?d?d?d --stdout > working/3hc-mask.txt
 
+# echo "hashcat instead: with cunch..."------
+# ========== hashcat instead: with cunch... subtract the same digits and afterwrite ==========
+# crunch 4 4 9876543210 -d 3% > working/4hc-mask.txt
+# crunch 3 3 9876543210 -d 2% > working/3hc-mask.txt
+# echo -e "9999\n8888\n7777\n6666\n5555\n4444\n3333\n2222\n1111\n0000" >> working/4hc-mask.txt
+# echo -e "999\n888\n777\n666\n555\n444\n333\n222\n111\n000" >> working/3hc-mask.txt
+# ============================================================================================
+# echo "with hashcat plus mode..."------
+# =========== with hashcat plus mode... subtract the same digits and afterwrite ==============
+# sed -i '/9999/d;/8888/d;/7777/d;/6666/d;/5555/d;/4444/d;/3333/d;/2222/d;/1111/d;/0000/d' working/4hc-mask.txt
+# sed -i '/999/d;/888/d;/777/d;/666/d;/555/d;/444/d;/333/d;/222/d;/111/d;/000/d' working/3hc-mask.txt
+# echo -e "9999\n8888\n7777\n6666\n5555\n4444\n3333\n2222\n1111\n0000" >> working/4hc-mask.txt
+# echo -e "999\n888\n777\n666\n555\n444\n333\n222\n111\n000" >> working/3hc-mask.txt
+# ============================================================================================
+
 echo "MAC numbers after writting --- hc mask 4 ---"
 # MAC numbers after writting --- hc mask 4 ---
 sed "/[$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed -e 's/://g' -e 's/[A-F]//g' -f <(printf 's/[%s]//2g\n' {0..9}))]/!d" working/4hc-mask.txt > working/AfterWrite-4_02.txt
