@@ -17,6 +17,11 @@ Optional choose:
 Generate digits method -> h/c (hashcat, or crunch reverse method)
 Subtract identical digits -> y/n (0000-1111-etc. 000-111-etc.)
 
+* 2.0 plus modes added !!!
+Specify location a previous .wpc session file for subtraction. -> y/n
+example:
+/var/lib/reaver/XXXXXXXXXXXX.wpc
+
 Multiple MACs can be developed one after the other.
 
 ---------------------------------------------------
