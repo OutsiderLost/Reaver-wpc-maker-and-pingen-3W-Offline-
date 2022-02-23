@@ -26,7 +26,8 @@ firefox 3W_wps-pin_Firefox/"$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed 's/://
 
 mkdir working
 
-cut -d ' ' -f 2- result/MAC-Vendor.txt | sed 's/ /\n/g' | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' | sort -u | sed "s/.*/-e 's\/&\/GRABBING\/g'/" | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-01.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-01.sh
+cut -d ' ' -f 2- result/MAC-Vendor.txt | sed 's/ /\n/g' | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' | sort -u | sed "s/.*/-e 's\/&\/GRABBING\/g'/" | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-01.sh
 
 echo " "
 echo "Remaining process logging......"
@@ -192,9 +193,11 @@ echo " "
 echo "(sedcommand files) ---"
 # (sedcommand files)
 # 4 (02)
-sed "s/.*/-e '\/&\/d'/" working/AfterWrite-4_01.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-02.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-02.sh
+sed "s/.*/-e '\/&\/d'/" working/AfterWrite-4_01.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-02.sh
 # 3 (03)
-sed "s/.*/-e '\/&\/d'/" working/AfterWrite-3_01.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-03.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-03.sh
+sed "s/.*/-e '\/&\/d'/" working/AfterWrite-3_01.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-03.sh
 
 echo "(bash 4) ---"
 # (bash 4)

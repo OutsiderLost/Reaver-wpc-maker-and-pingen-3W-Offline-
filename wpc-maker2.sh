@@ -26,7 +26,8 @@ firefox 3W_wps-pin_Firefox/"$(cut -d ' ' -f 1 result/MAC-Vendor.txt | sed 's/://
 
 mkdir working
 
-cut -d ' ' -f 2- result/MAC-Vendor.txt | sed 's/ /\n/g' | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' | sort -u | sed "s/.*/-e 's\/&\/GRABBING\/g'/" | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-01.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-01.sh
+cut -d ' ' -f 2- result/MAC-Vendor.txt | sed 's/ /\n/g' | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' | sort -u | sed "s/.*/-e 's\/&\/GRABBING\/g'/" | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-01.sh
 
 echo " "
 echo "Remaining process logging......"
@@ -192,9 +193,11 @@ echo " "
 echo "(sedcommand files) ---"
 # (sedcommand files)
 # 4 (02)
-sed "s/.*/-e '\/&\/d'/" working/AfterWrite-4_01.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-02.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-02.sh
+sed "s/.*/-e '\/&\/d'/" working/AfterWrite-4_01.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-02.sh
 # 3 (03)
-sed "s/.*/-e '\/&\/d'/" working/AfterWrite-3_01.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-03.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-03.sh
+sed "s/.*/-e '\/&\/d'/" working/AfterWrite-3_01.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-03.sh
 
 echo "(bash 4) ---"
 # (bash 4)
@@ -261,7 +264,8 @@ echo " "
 sed -n 4,$(expr $(sed -n 1p $(cat working/wpc-location.txt)) + 2)p $(cat working/wpc-location.txt) > working/4value-wpc.txt
 # (sedcommand file) --- 04.sh ---
 echo "(sedcommand file) --- 04.sh ---"
-sed "s/.*/-e '\/&\/d'/" working/4value-wpc.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-04.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-04.sh
+sed "s/.*/-e '\/&\/d'/" working/4value-wpc.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-04.sh
 # (bash 4) --- 04.sh ---
 echo "(bash 4) --- 04.sh ---"
 bash working/sedcommand-04.sh < working/AfterWrite-4_01cp.txt | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' > working/AfterWrite-4_02cp.txt
@@ -291,7 +295,8 @@ echo " "
 sed -n 10004,$(expr $(sed -n 2p $(cat working/wpc-location.txt)) + 10002)p $(cat working/wpc-location.txt) > working/3value-wpc.txt
 # (sedcommand file) ---
 echo "(sedcommand file) ---"
-sed "s/.*/-e '\/&\/d'/" working/3value-wpc.txt | paste -d" " -s | sed "s/.*/sed &/" > working/sedcommand-05.sh
+echo -e '#!/bin/bash\n' > working/sedcommand-05.sh
+sed "s/.*/-e '\/&\/d'/" working/3value-wpc.txt | paste -d" " -s | sed "s/.*/sed &/" >> working/sedcommand-05.sh
 # (bash 5)
 echo "(bash 5) ---"
 bash working/sedcommand-05.sh < working/AfterWrite-3_01cp.txt | sed -e '/^[[:space:]]*$/d' -e 's/[ ]//g' > working/AfterWrite-3_02cp.txt
