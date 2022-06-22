@@ -31,6 +31,7 @@ https://github.com/OutsiderLost/Reaver-wpc-maker-pingen
 
 cd Reaver-wpc-maker-pingen
 
+(optional unzip)
 unzip 3W_wps-pin_offline.zip && rm 3W_wps-pin_offline.zip && chmod +x *.sh
 
 (run)
