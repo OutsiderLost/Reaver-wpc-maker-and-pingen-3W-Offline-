@@ -33,6 +33,7 @@ cd Reaver-wpc-maker-pingen
 
 (optional unzip)
 unzip 3W_wps-pin_offline.zip && rm 3W_wps-pin_offline.zip && chmod +x *.sh
+(if don't work "FIRE", just use "OTHER")
 
 (run)
 ./wpc-maker.sh
